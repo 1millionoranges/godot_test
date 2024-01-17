@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxvsmu2rnlvk4"]
+
+[ext_resource type="Texture2D" uid="uid://vp4rgcy3a66f" path="res://assets/images/cloud.png" id="1_7a55r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_an66p"]
+radius = 106.042
+
+[node name="Cloud-ball" type="RigidBody2D"]
+
+[node name="Cloud-sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7a55r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_an66p")

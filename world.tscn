@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5ro7g8nvnjb"]
+
+[ext_resource type="Texture2D" uid="uid://u8kffmvtfkns" path="res://assets/images/cityforeground.png" id="1_6fxje"]
+[ext_resource type="Script" path="res://DampedSpringJoint2D.gd" id="1_hbrk8"]
+[ext_resource type="Texture2D" uid="uid://241kyqef3f81" path="res://assets/images/citybackground.png" id="2_ke238"]
+[ext_resource type="PackedScene" uid="uid://csgtxegg82a45" path="res://player.tscn" id="3_fcqpx"]
+[ext_resource type="PackedScene" uid="uid://rh516pv8ql2u" path="res://swing_object.tscn" id="4_c5stx"]
+[ext_resource type="PackedScene" uid="uid://dxvsmu2rnlvk4" path="res://cloud_ball.tscn" id="6_r8btt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtino"]
+
+[node name="World" type="Node2D"]
+position = Vector2(178, 33)
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-2095, -875)
+node_a = NodePath("../Player")
+node_b = NodePath("../Cloud-ball")
+length = 1000.0
+stiffness = 64.0
+script = ExtResource("1_hbrk8")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Floor-Collision-Shape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-4, 1269)
+scale = Vector2(1000, 10)
+shape = SubResource("RectangleShape2D_xtino")
+
+[node name="Player" parent="." instance=ExtResource("3_fcqpx")]
+position = Vector2(-2095, -875)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background-layer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Background-texture" type="Sprite2D" parent="ParallaxBackground/Background-layer"]
+texture = ExtResource("2_ke238")
+
+[node name="Foreground-layer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Foreground-texture" type="Sprite2D" parent="ParallaxBackground/Foreground-layer"]
+texture = ExtResource("1_6fxje")
+
+[node name="SwingObject" parent="." instance=ExtResource("4_c5stx")]
+position = Vector2(-1774, -827)
+
+[node name="Cloud-ball" parent="." instance=ExtResource("6_r8btt")]
+position = Vector2(-1327, -833)
+mass = 3.85

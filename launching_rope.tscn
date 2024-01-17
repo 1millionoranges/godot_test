@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bathoax5ipf2q"]
+
+[ext_resource type="Script" path="res://Rope.gd" id="1_70ovy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agxt0"]
+
+[node name="Launching-rope" type="Node2D"]
+script = ExtResource("1_70ovy")
+
+[node name="Launch-end" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Launch-end"]
+shape = SubResource("CircleShape2D_agxt0")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://csgtxegg82a45"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_yce0u"]
+[ext_resource type="Texture2D" uid="uid://c4gmlfuxlqkt6" path="res://assets/images/char_back.png" id="2_pax2d"]
+[ext_resource type="PackedScene" uid="uid://bathoax5ipf2q" path="res://launching_rope.tscn" id="3_6sdc7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ma2ul"]
+radius = 23.0
+height = 52.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_yce0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pax2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ma2ul")
+
+[node name="Ropes" type="Node" parent="."]
+
+[node name="Launching-rope" parent="Ropes" instance=ExtResource("3_6sdc7")]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rh516pv8ql2u"]
+
+[ext_resource type="Texture2D" uid="uid://b004shfxi10eb" path="res://assets/images/gargoyle.png" id="1_7vxeb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pcwk"]
+
+[node name="SwingObject" type="StaticBody2D"]
+
+[node name="Gargoyle-sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7vxeb")
+
+[node name="Collision-sphere" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_4pcwk")
